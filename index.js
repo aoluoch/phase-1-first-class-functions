@@ -1,20 +1,23 @@
-function receivesAFunction(callback) {
-    callback();
+const returnFirstTwoDrivers = function(drivers) {
+    return drivers.slice(0, 2);
 }
 
-function returnsANamedFunction() {
-    // Define the named function
-    function namedFunction() {
-        console.log("This is a named function");
+const returnLastTwoDrivers = function(drivers) {
+    return drivers.slice(-2);
+}
+
+const selectingDrivers = [returnFirstTwoDrivers, returnLastTwoDrivers];
+
+const createFareMultiplier = function(multiplier) {
+    return function(fare) {
+        return fare * multiplier;
     }
-    return namedFunction; 
 }
 
-function returnsAnAnonymousFunction() {
-    // Return an anonymous function
-    return function() {
-        console.log("This is an anonymous function");
-    };
+const fareDoubler = createFareMultiplier(2);
+
+const fareTripler = createFareMultiplier(3);
+
+const selectDifferentDrivers = function(drivers, driverSelector) {
+    return driverSelector(drivers);
 }
-
-
